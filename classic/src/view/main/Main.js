@@ -20,7 +20,9 @@ Ext.define('NewApp.view.main.Main', {
         'Ext.window.MessageBox',
         'NewApp.view.main.MainController',
         'NewApp.view.main.MainModel',
-        'NewApp.view.main.List'
+        'NewApp.view.main.List',
+        
+
 
     ],
 
@@ -37,6 +39,7 @@ Ext.define('NewApp.view.main.Main', {
         layout: {
             align: 'stretchmax'
         },
+        
         title: {
             bind: {
                 text: '{name}'
@@ -51,7 +54,8 @@ Ext.define('NewApp.view.main.Main', {
         layout: {
             align: 'stretch',
             overflowHandler: 'none'
-        }
+        },
+        
     },
 
     responsiveConfig: {
@@ -86,6 +90,10 @@ Ext.define('NewApp.view.main.Main', {
         iconCls: 'fa-home',
         items: [
             {
+                xtype: 'mainlist1'
+
+            },
+            {
                 xtype: 'mainlist'
 
             },
@@ -117,6 +125,28 @@ Ext.define('NewApp.view.main.Main', {
 
 
                 }
+            },
+            {
+                xtype: 'button',
+                text: 'siwtch',
+                style: {
+                    margin: '10px',
+                    width: '340px'
+                },
+                handler: function () {
+                    var gridNumber = Ext.getCmp('mainGridId').getStore().config.data.items
+                    var grid = Ext.getCmp('mainGridId')
+                    var grid2 = Ext.getCmp('mainGridId2')
+                    var store = grid.getStore()
+                    console.log(gridNumber)
+                   
+
+                    }
+
+
+
+
+                
             },
             {
                 xtype: 'button',
