@@ -34,6 +34,48 @@ Ext.define('NewApp.store.Personnel', {
 
 });
 
+Ext.define('NewApp.store.Personnel2', {
+    extend: 'Ext.data.Store',
+    storeId: 'personnel2',
+    alias: 'store.personnel2',
+
+    fields: [
+        ['name', 'email', 'phone',],
+
+
+
+    ],
+
+    data: {
+        items: [
+            { name: 'odai', email: "odai@enterprise.com", phone: "555-111-1111" },
+            { name: 'safwan', email: "safwan@enterprise.com", phone: "555-222-2222" },
+            { name: 'rahaf', email: "rahaf@enterprise.com", phone: "555-333-3333" },
+            { name: 'raedah', email: "raedah@enterprise.com", phone: "555-444-4444" },
+            
+        ]
+    },
+
+    
+
+
+
+    proxy: {
+        type: 'memory',
+        reader: {
+            type: 'json',
+            rootProperty: 'items'
+        }
+    },
+
+});
+
+
+
+
+
+
+
 
 
 

@@ -21,7 +21,7 @@ Ext.define('NewApp.view.main.Main', {
         'NewApp.view.main.MainController',
         'NewApp.view.main.MainModel',
         'NewApp.view.main.List',
-        
+
 
 
     ],
@@ -39,7 +39,7 @@ Ext.define('NewApp.view.main.Main', {
         layout: {
             align: 'stretchmax'
         },
-        
+
         title: {
             bind: {
                 text: '{name}'
@@ -55,7 +55,7 @@ Ext.define('NewApp.view.main.Main', {
             align: 'stretch',
             overflowHandler: 'none'
         },
-        
+
     },
 
     responsiveConfig: {
@@ -135,18 +135,47 @@ Ext.define('NewApp.view.main.Main', {
                 },
                 handler: function () {
                     var gridNumber = Ext.getCmp('mainGridId').getStore().config.data.items
+                    var gridNumber2 = Ext.getCmp('mainGridId2').getStore().config.data.items
                     var grid = Ext.getCmp('mainGridId')
                     var grid2 = Ext.getCmp('mainGridId2')
+                    var store2 = grid2.getStore()
                     var store = grid.getStore()
+                    var fields = store.model.prototype.fields
                     console.log(gridNumber)
-                   
+                    console.log(gridNumber2)
+                    store2.removeAll();
+
+                    for (var i = 0; i < gridNumber.length; i++) {
+
+
+                        store2.add({
+                            name: gridNumber[i].name,
+                            email: gridNumber[i].email,
+                            phone: gridNumber[i].phone
+                        });
 
                     }
 
+                    store.removeAll();
+                    for (var x = 0; x < gridNumber2.length; x++) {
+                        store.add({
+                            name: gridNumber2[x].name,
+                            email: gridNumber2[x].email,
+                            phone: gridNumber2[x].phone
+                        });
+                    }
+                    console.log(gridNumber)
+                    console.log(gridNumber2)
 
 
 
-                
+
+                }
+
+
+
+
+
             },
             {
                 xtype: 'button',

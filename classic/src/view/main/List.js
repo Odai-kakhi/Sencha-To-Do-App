@@ -20,7 +20,7 @@ Ext.define('NewApp.view.main.List', {
     title: 'Personnel-Top',
 
     store: {
-        type: 'personnel',
+        type: 'personnel2',
     },
 
     columns: [
